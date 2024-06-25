@@ -21,10 +21,17 @@
     padding: 1rem;
 }
 .btn{
+    font-size: 1.2rem;
+    border: none;
+    background-color: rgb(0, 39, 0);
+    color: wheat;
+    padding: 2px 2rem;
+    border-radius: 10rem;
+    box-shadow: 1px 1px 1px grey;
+}
+.input{
     font-size: 1.5rem;
     border: none;
-    background-color: green;
-    color: wheat;
     padding: 2px 2rem;
     border-radius: 10rem;
     box-shadow: 1px 1px 1px grey;
@@ -41,17 +48,26 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    /* flex-shrink: 1; */
 }
 .row{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 1;
+    /* width: 50vh; */
+    /* height: calc(/); */
+
 }
 .pixel{
-    height: 3vh;
-    width: 3vh;
-    border: 1px solid rgb(240, 240, 240);
+    height: 10px;
+    width: 10px;
     background-color: rgb(132, 237, 255);
+}
+.wrapper:hover .pixel{
+    
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 3rem;
 }
 .pixel.set{
     background-color: rgb(56, 255, 56);
