@@ -21,7 +21,13 @@ pixels = pixels.reverse()
 function setPixel(x,y){
     pixels[y][x].className += ' set' 
 }
-
+function setPixel(x,y,color){
+    pixels[y][x].className += ' set'
+    pixels[y][x].style.backgroundColor = color
+}
+function getPixel(x,y){
+    return pixels[y][x]
+}
 document.getElementById("run").addEventListener('click',(e)=>{
     let code = document.getElementById("txtCode").value
     eval(code)
