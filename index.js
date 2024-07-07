@@ -45,7 +45,3 @@ document.getElementById('btn_update').addEventListener('click',function(){
     console.log(document.getElementById('wrapper').children)
     setup(document.getElementById('txt_res').value)
 })
-
-document.addEventListener('DOMContentLoaded', function() {
-    Prism.highlightAll();
-});
