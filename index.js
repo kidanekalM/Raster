@@ -26,7 +26,7 @@ function setPixel(x,y,color){
     pixels[y][x].style.backgroundColor = color
 }
 function getPixel(x,y){
-    return pixels[y][x]
+    return pixels[y][x].style.backgroundColor;
 }
 document.getElementById("run").addEventListener('click',(e)=>{
     let code = document.getElementById("txtCode").value
@@ -45,3 +45,7 @@ document.getElementById('btn_update').addEventListener('click',function(){
     console.log(document.getElementById('wrapper').children)
     setup(document.getElementById('txt_res').value)
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+    Prism.highlightAll();
+});
