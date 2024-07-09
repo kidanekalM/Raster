@@ -11,22 +11,25 @@
     <div class="container">
         <div class="codeWrapper">
             <div class="settings">
-                <input type="number"  class="input" id="txt_res">
+                <input width="1rem" type="number"  class="input" id="txt_res">
                 <button class="btn" id="btn_update">update</button>
             </div>
             <h3>Javascript Code<h3>
-            <textarea name="" id="txtCode">
-                <span style="background-color: red">for</span>(let i = 0, j = 29; j > 0, i < 30; j--, i++) {
-                    setPixel(i, i, "red");
-                    setPixel(j, i, "blue");
-                    setPixel(29, i);
-                    setPixel(i, 0);
-                    setPixel(0, i);
-                    setPixel(i, 29);
-                }
-                
-                             
+
+                <code>
+                    <textarea spellcheck="false" name="" id="txtCode">
+                       
+for(let i = 0, j = 59; j > 0, i < 60; j--, i++) {
+    setPixel(i, i, "red");
+    setPixel(j, i, "blue");
+    setPixel(59, i);
+    setPixel(i, 0);
+    setPixel(0, i);
+    setPixel(i, 59);
+}
 </textarea>
+</code>
+            
             <div class="btnCont">
 
                 <button class="btn" id="run">Run</button>

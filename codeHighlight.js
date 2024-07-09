@@ -11,5 +11,5 @@ dictionary = { "for":"green",
 }
 document.getElementById("txtCode").addEventListener('input',function(){
     console.log(document.getElementById("txtCode").value)
-    document.getElementById("txtCode").value = document.getElementById("txtCode").value.replace("for","<span style='backgroundColor:"+dictionary['for']+"'>for</span>")
+    document.getElementById("txtCode").innerHTML = document.getElementById("txtCode").value.replace("for","<span style='backgroundColor:"+dictionary['for']+"'>for</span>")
 })

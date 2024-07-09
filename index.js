@@ -11,6 +11,7 @@ function setup(resolution){
         for(j=0;j<numCol;j++){
             let pixel = document.createElement('div')
             pixel.className = "pixel"
+            pixel.title = "("+i+","+j+")"
             row.appendChild(pixel)
             pixels[i][j] = pixel
         }
