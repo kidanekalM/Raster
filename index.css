@@ -52,6 +52,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    transform: rotateX(180deg);
     /* flex-shrink: 1; */
 }
 .row{
