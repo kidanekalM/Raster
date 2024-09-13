@@ -18,16 +18,16 @@ function setup(resolution){
         document.getElementById("wrapper").appendChild(row)
     }
 // we reverse the array to resemble the cartesian plane
-pixels = pixels.reverse()
+//pixels = pixels.reverse()
 function setPixel(x,y){
     pixels[y][x].className += ' set' 
 }
 function setPixel(x,y,color){
-    pixels[y][x].className += ' set'
-    pixels[y][x].style.backgroundColor = color
+    pixels[x][y].className += ' set'
+    pixels[x][y].style.backgroundColor = color
 }
 function getPixel(x,y){
-    return pixels[y][x].style.backgroundColor;
+    return pixels[x][y].style.backgroundColor;
 }
 document.getElementById("run").addEventListener('click',(e)=>{
     let code = document.getElementById("txtCode").value
