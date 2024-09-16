@@ -1,3 +1,4 @@
+ 
 let resolution = 60
 function setup(resolution){
 
@@ -20,7 +21,7 @@ function setup(resolution){
 // we reverse the array to resemble the cartesian plane
 //pixels = pixels.reverse()
 function setPixel(x,y){
-    pixels[y][x].className += ' set' 
+    pixels[x][y].className += ' set' 
 }
 function setPixel(x,y,color){
     pixels[x][y].className += ' set'
@@ -45,4 +46,13 @@ document.getElementById('btn_update').addEventListener('click',function(){
     wrParent.appendChild(wrapper)
     console.log(document.getElementById('wrapper').children)
     setup(document.getElementById('txt_res').value)
+})
+
+
+// Save code
+document.getElementById("save").addEventListener('click',()=>{
+    let code = document.getElementById("txtCode").value
+    let title = code.slice(code.indexOf("//")+2,code.indexOf("\n"))
+    console.log("Title is " ,title);
+    // write to file
 })
