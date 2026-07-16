@@ -19,14 +19,140 @@
                 <code>
                     <textarea spellcheck="false" name="" id="txtCode">
                        
-for(let i = 0, j = 59; j > 0, i < 60; j--, i++) {
-    setPixel(i, i, "red");
-    setPixel(j, i, "blue");
-    setPixel(59, i);
-    setPixel(i, 0);
-    setPixel(0, i);
-    setPixel(i, 59);
+// Border
+for (let i = 0; i < 60; i++) {
+    setPixel(i,0,"white");
+    setPixel(i,59,"white");
+    setPixel(0,i,"white");
+    setPixel(59,i,"white");
 }
+
+const colors = ["lime","red","cyan","yellow"];
+
+const snakes = [];
+
+for(let i=0;i<4;i++){
+
+    snakes.push({
+        body:[
+            {x:10+i*10,y:10+i*8},
+            {x:9+i*10,y:10+i*8},
+            {x:8+i*10,y:10+i*8},
+            {x:7+i*10,y:10+i*8},
+            {x:6+i*10,y:10+i*8}
+        ],
+        dx:1,
+        dy:0,
+        color:colors[i]
+    });
+
+}
+
+function occupied(x,y){
+
+    for(let snake of snakes){
+        for(let part of snake.body){
+            if(part.x==x && part.y==y){
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+function moveSnake(s){
+
+    const dirs=[
+        {x:1,y:0},
+        {x:-1,y:0},
+        {x:0,y:1},
+        {x:0,y:-1}
+    ];
+
+    if(Math.random()<0.25){
+
+        let choices=[];
+
+        for(let d of dirs){
+
+            if(d.x==-s.dx && d.y==-s.dy) continue;
+
+            let nx=s.body[s.body.length-1].x+d.x;
+            let ny=s.body[s.body.length-1].y+d.y;
+
+            if(nx<1||nx>58||ny<1||ny>58) continue;
+
+            if(occupied(nx,ny)) continue;
+
+            choices.push(d);
+
+        }
+
+        if(choices.length){
+            let c=choices[Math.floor(Math.random()*choices.length)];
+            s.dx=c.x;
+            s.dy=c.y;
+        }
+
+    }
+
+    let head=s.body[s.body.length-1];
+
+    let nx=head.x+s.dx;
+    let ny=head.y+s.dy;
+
+    if(nx<1||nx>58||ny<1||ny>58||occupied(nx,ny)){
+
+        let choices=[];
+
+        for(let d of dirs){
+
+            let tx=head.x+d.x;
+            let ty=head.y+d.y;
+
+            if(tx<1||tx>58||ty<1||ty>58) continue;
+
+            if(occupied(tx,ty)) continue;
+
+            choices.push(d);
+
+        }
+
+        if(choices.length){
+
+            let c=choices[Math.floor(Math.random()*choices.length)];
+
+            s.dx=c.x;
+            s.dy=c.y;
+
+            nx=head.x+s.dx;
+            ny=head.y+s.dy;
+
+        }else{
+            return;
+        }
+
+    }
+
+    s.body.push({x:nx,y:ny});
+
+    setPixel(nx,ny,s.color);
+
+    let tail=s.body.shift();
+
+    // Erase the tail so no trail remains.
+    setPixel(tail.x,tail.y,"black");
+
+}
+
+setInterval(function(){
+
+    for(let snake of snakes){
+        moveSnake(snake);
+    }
+
+},120);
 </textarea>
 </code>
             
